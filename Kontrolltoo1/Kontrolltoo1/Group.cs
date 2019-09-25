@@ -23,7 +23,10 @@ namespace Kontrolltoo1
         {
             
             Students.Add(student);
-            Students.Count();
+            foreach (Student s in Students)
+            {
+                Console.WriteLine(student.FirstName + " " + student.LastName + " " + student.PersonalCode);
+            }
         }
 
     }
