@@ -35,7 +35,6 @@ namespace tund2iseseisev
             else if(answer==2)
             {
                 Shape.Circle circle = new Shape.Circle();
-                Console.WriteLine("Sisesta ringi raadius");
                 Console.Write("Sisesta ringi raadius: "); int a = circle.A;
                 double b = 3.14;
                 Console.WriteLine("Ringi ümbermõõt on " + circle.CirclePerimeter(a,b));
