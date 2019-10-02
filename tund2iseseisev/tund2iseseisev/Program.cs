@@ -21,13 +21,16 @@ namespace tund2iseseisev
                  int c = ruut.A;
                  int d = c;
                  Console.WriteLine("Ruudu pindala on "+ruut.Pindala(c, d));
-            }else if (answer == false)
+                 Console.WriteLine("Ruudu ümbermõõt on " + ruut.Perimeter(c, d));
+            }
+            else if (answer == false)
             {
                 Kujund.Ristkülik ristkülik= new Kujund.Ristkülik();
                 Console.WriteLine("Sisesta ristküliku külg A ja seejärel B");
                 Console.Write("Ristküliku külg A: "); int a = ristkülik.A;
                 Console.Write("Ristküliku külg B: "); int b = ristkülik.B;
                 Console.WriteLine("Ristküliku pindala on " + ristkülik.Pindala(a,b));
+                Console.WriteLine("Ristküliku ümbermõõt on " + ristkülik.Perimeter(a,b));
             }
 
         }

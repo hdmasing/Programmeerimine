@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace tund2iseseisev
 {
@@ -10,6 +11,7 @@ namespace tund2iseseisev
     {
         public virtual int A { get; set; }
         public virtual int B { get; set; }
+        public virtual int Umbermoot { get; set; }
         public class Ristkülik : Kujund
         {
             public override int A
@@ -36,6 +38,11 @@ namespace tund2iseseisev
             {
                 
                 return A * B;
+            }
+
+            public int Perimeter(int A, int B)
+            {
+                return 2 * A + 2 * B;
             }
     }
 }
