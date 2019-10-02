@@ -12,29 +12,38 @@ namespace tund2iseseisev
         {
             Program p = new Program();
                      
-            Console.WriteLine("Vali kujund, mida soovid sisestada, 1 on ristkülik ja 0 on ruut");
-            bool answer = p.Yesorno();
-            if (answer == true)
+            Console.WriteLine("Vali kujund, mida soovid sisestada, 2 on ring, 1 on ristkülik ja 0 on ruut");
+            int answer = p.Yesorno();
+            if (answer == 1)
             {
-                 Kujund.Ristkülik.Ruut ruut = new Kujund.Ristkülik.Ruut();   
+                 Shape.Rectangle.Square square = new Shape.Rectangle.Square();   
                  Console.Write("Sisesta ruudu külg A");
-                 int c = ruut.A;
+                 int c = square.A;
                  int d = c;
-                 Console.WriteLine("Ruudu pindala on "+ruut.Pindala(c, d));
-                 Console.WriteLine("Ruudu ümbermõõt on " + ruut.Perimeter(c, d));
+                 Console.WriteLine("Ruudu pindala on "+square.Pindala(c, d));
+                 Console.WriteLine("Ruudu ümbermõõt on " + square.Perimeter(c, d));
             }
-            else if (answer == false)
+            else if (answer == 0)
             {
-                Kujund.Ristkülik ristkülik= new Kujund.Ristkülik();
+                Shape.Rectangle rectangle= new Shape.Rectangle();
                 Console.WriteLine("Sisesta ristküliku külg A ja seejärel B");
-                Console.Write("Ristküliku külg A: "); int a = ristkülik.A;
-                Console.Write("Ristküliku külg B: "); int b = ristkülik.B;
-                Console.WriteLine("Ristküliku pindala on " + ristkülik.Pindala(a,b));
-                Console.WriteLine("Ristküliku ümbermõõt on " + ristkülik.Perimeter(a,b));
+                Console.Write("Ristküliku külg A: "); int a = rectangle.A;
+                Console.Write("Ristküliku külg B: "); int b = rectangle.B;
+                Console.WriteLine("Ristküliku pindala on " + rectangle.Pindala(a,b));
+                Console.WriteLine("Ristküliku ümbermõõt on " + rectangle.Perimeter(a,b));
+            }
+            else if(answer==2)
+            {
+                Shape.Circle circle = new Shape.Circle();
+                Console.WriteLine("Sisesta ringi raadius");
+                Console.Write("Sisesta ringi raadius: "); int a = circle.A;
+                double b = 3.14;
+                Console.WriteLine("Ringi ümbermõõt on " + circle.CirclePerimeter(a,b));
+                Console.WriteLine("Ringi pindala on " + circle.CircleSize(a,b));
             }
 
         }
-        private bool Yesorno()
+        private int Yesorno()
             {
                 repeatthisquestion:
                 string number = Console.ReadLine();
@@ -49,22 +58,26 @@ namespace tund2iseseisev
 
                 if (abi == 1)
                 {
-                    return false;
+                    return 1;
                    
                 }
                 else if (abi == 0)
                 {
 
-                    goto beginning;
+                    return 0;
 
+                }
+                else if(abi == 2)
+                {
+                    return 2;
                 }
                 else
                 {
                     Console.WriteLine("Palun sisesta 1 või 0");
                     goto repeatthisquestion;
                 }
-                beginning:
-                return tõene;
+                
+                
             }
     }
 }
