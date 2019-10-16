@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Deployment.Internal;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -13,7 +14,11 @@ namespace tunnitoo3.Models
         public string Name { get; set; }
         public double Price { get; set; }
 
-       
+        public Food()
+        {
+
+        }
+        public virtual ShoppingCart ShoppingCart { get; set; }
 
         public Food(string name, double price)
         {
@@ -29,7 +34,8 @@ namespace tunnitoo3.Models
             sum = food.Price * a;
             return sum;
         }
-        
+
+
 
 
     }

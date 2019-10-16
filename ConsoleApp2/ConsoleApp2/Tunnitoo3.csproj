@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="DbContext\ShopDbContext.cs" />
     <Compile Include="Food.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShoppingCart.cs" />

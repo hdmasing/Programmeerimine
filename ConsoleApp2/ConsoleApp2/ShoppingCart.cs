@@ -12,7 +12,13 @@ namespace tunnitoo3.Models
         public double Sum { get; set; }
         public DateTime DateCreated { get; set; }
 
-        public List<Food> Items { get; set; }
+
+        public virtual ICollection<Food> Items { get; set; }
+
+        public ShoppingCart()
+        {
+                
+        }
 
         public ShoppingCart(double sum)
         {
@@ -20,6 +26,7 @@ namespace tunnitoo3.Models
             Items = new List<Food>();
             Sum = sum;
             DateCreated= DateTime.Now;
+           
         }
     }
 }

@@ -21,14 +21,12 @@ namespace tunnitoo3
                 new Food("cheese", 3)
             };
             ShoppingCart newCart = new ShoppingCart(0);
-            foreach (var food in groceries)
-            {
-                newCart.Items.Add(food);
-            }
+            
             beginning:
             askagain: Console.WriteLine("Millise toidu soovid korvi lisada?");
             string userinput = Console.ReadLine();
             Food chosenFood = groceries.FirstOrDefault(x => x.Name == userinput);
+            newCart.Items.Add(chosenFood);
             int a;
             if (chosenFood == null)
             {
@@ -81,25 +79,30 @@ namespace tunnitoo3
                 Console.WriteLine("Sisesta kas 1-jah või 0-ei");
                 goto repeatthisquestion;//suunab reale 54
             }
-            double fullprice=0;
-            foreach (double sum in prices)
-            {
-                
-                fullprice = sum + fullprice;
-                newCart.Sum = fullprice;
-            }
+
+
             using (var db = new ShopDbContext())
             {
                 db.ShoppingCarts.Add(newCart);
                 db.SaveChanges();
-                var carts = db.ShoppingCarts;
-                
+
+                var carts = db.ShoppingCarts.Include("items").OrderByDescending(x=>x.DateCreated).ToList();
+                var foods = db.Foods;
                 foreach (var VARIABLE in carts)
                 {
                     Console.WriteLine(Convert.ToString(VARIABLE.DateCreated));
-
+                    
+                    foreach (var food in foods)
+                    {
+                        Console.WriteLine(" toode " + food.Name + " maksumus " + food.Price);
+                        
+                    }
                     
                 }
+                var lastcartadded = db.ShoppingCarts.Include("items").OrderByDescending(x => x.DateCreated).ToList().First();
+                Console.WriteLine(lastcartadded.DateCreated);
+              
+                
             }
             
         }
