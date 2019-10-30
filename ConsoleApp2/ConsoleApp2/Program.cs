@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using tunnitoo3.Models;
@@ -18,7 +19,8 @@ namespace tunnitoo3
             {
                 new Food("apple", 1.7),
                 new Food("bread", 2),
-                new Food("cheese", 3)
+                new Food("cheese", 3),
+                new Food("banana", 2)
             };
             ShoppingCart newCart = new ShoppingCart(0);
             
@@ -101,9 +103,40 @@ namespace tunnitoo3
                 }
                 var lastcartadded = db.ShoppingCarts.Include("items").OrderByDescending(x => x.DateCreated).ToList().First();
                 Console.WriteLine(lastcartadded.DateCreated);
-              
-                
+
+                var cartswithitems = db.ShoppingCarts;
+                var cartswithoutitems = db.ShoppingCarts.Include("Items");
+
+                var carts5 = carts.Where(x => x.Sum > 5).ToList();
+                foreach (var cart in carts5)
+                {
+                    Console.WriteLine(cart.DateCreated);
+                   
+                }
+
+                var cartwithmorethan1 = cartswithitems.Where(x => x.Items.Count() > 1).ToList();
+                foreach (var cart in cartwithmorethan1)
+                {
+                    Console.WriteLine(cart.DateCreated);
+                    Console.WriteLine(cart.Items.Count());
+                    
+                }
+
+                var cartwithmorethan1query = from cart in cartswithitems where cart.Items.Count() > 1 select cart;
+                foreach (var cart in cartwithmorethan1query)
+                {
+                    Console.WriteLine(cart.DateCreated);
+                    Console.WriteLine(cart.Items.Count());
+                    
+                }
+
+                cartswithitems.Where(x => x.Items.Any(y => y.Name == "banana"));
+
+                var count = carts.Count();
+
+                var cartmaxsum = cartswithitems.OrderByDescending(x => x.Sum).ToList().FirstOrDefault();
             }
+
             
         }
     }

@@ -5,6 +5,13 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tunnitoo3", "ConsoleApp2\Tunnitoo3.csproj", "{911CC85F-10D1-41F5-826D-2999CB24FD87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopDatabaseAdvanced", "ShopDatabaseAdvanced\ShopDatabaseAdvanced.csproj", "{BA444BD6-0096-4BE2-9765-87F39B7300C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Context", "Context", "{2F5F0E73-2BCA-41B7-8ECC-878D42AB2C86}"
+	ProjectSection(SolutionItems) = preProject
+		ShopDatabaseAdvanced\ADvancedShopDatabaseContext.cs = ShopDatabaseAdvanced\ADvancedShopDatabaseContext.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +22,16 @@ Global
 		{911CC85F-10D1-41F5-826D-2999CB24FD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{911CC85F-10D1-41F5-826D-2999CB24FD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{911CC85F-10D1-41F5-826D-2999CB24FD87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA444BD6-0096-4BE2-9765-87F39B7300C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA444BD6-0096-4BE2-9765-87F39B7300C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA444BD6-0096-4BE2-9765-87F39B7300C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA444BD6-0096-4BE2-9765-87F39B7300C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BA444BD6-0096-4BE2-9765-87F39B7300C0} = {2F5F0E73-2BCA-41B7-8ECC-878D42AB2C86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2E9F522-1447-40F3-8C8C-D57B1E820211}
